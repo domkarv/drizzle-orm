@@ -4,8 +4,9 @@ import { db } from "./db/index.js";
 const app = express();
 
 app.get("/", async (req, res) => {
-  const data = await db.query.todo.findMany();
-  return res.json(data);
+  const todo = await db.query.todo.findMany();
+  const user = await db.query.user.findMany();
+  return res.json({ todo, user });
 });
 
 app.listen(3000, () => {
