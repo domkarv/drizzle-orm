@@ -1,11 +1,11 @@
 {
-  "id": "4213c79d-ea29-4397-858f-7d0809bd5a52",
+  "id": "c3626379-8b49-4ca6-9f2a-4fba34a88fd6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
-    "todos": {
-      "name": "todos",
+    "todo": {
+      "name": "todo",
       "schema": "",
       "columns": {
         "id": {
@@ -17,7 +17,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar(256)",
+          "type": "varchar(32)",
           "primaryKey": false,
           "notNull": true
         },
@@ -33,6 +33,29 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {},
